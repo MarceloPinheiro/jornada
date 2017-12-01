@@ -1,0 +1,38 @@
+<%- model_class = Rastreador -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:marca) %></th>
+      <th><%= model_class.human_attribute_name(:modelo) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rastreadores.each do |rastreador| %>
+      <tr>
+        <td><%= link_to rastreador.id, rastreador_path(rastreador) %></td>
+        <td><%= rastreador.marca %></td>
+        <td><%= rastreador.modelo %></td>
+        <td><%=l rastreador.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_rastreador_path(rastreador), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      rastreador_path(rastreador),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_rastreador_path,
+            :class => 'btn btn-primary' %>

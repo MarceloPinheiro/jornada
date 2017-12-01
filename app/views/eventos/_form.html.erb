@@ -1,0 +1,52 @@
+<%= form_for @evento, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :veiculo_id, :class => 'control-label' %>
+    <%= f.number_field :veiculo_id, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :motorista_id, :class => 'control-label' %>
+    <%= f.number_field :motorista_id, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tipo_evento_id, :class => 'control-label' %>
+    <%= f.number_field :tipo_evento_id, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_evento, :class => 'control-label' %>
+    <%= f.date_select :data_evento, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_lancamento, :class => 'control-label' %>
+    <%= f.date_select :data_lancamento, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :local, :class => 'control-label' %>
+    <%= f.text_area :local, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :motor, :class => 'control-label' %>
+    <%= f.number_field :motor, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :velocidade, :class => 'control-label' %>
+    <%= f.text_field :velocidade, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :altitude, :class => 'control-label' %>
+    <%= f.text_field :altitude, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :latitude, :class => 'control-label' %>
+    <%= f.text_field :latitude, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :longitude, :class => 'control-label' %>
+    <%= f.text_field :longitude, :class => 'form-control' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                eventos_path, :class => 'btn' %>
+  </div>
+<% end %>

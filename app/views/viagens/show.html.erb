@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Veiculo:</strong>
+  <%= @viagem.veiculo %>
+</p>
+
+<p>
+  <strong>Origem:</strong>
+  <%= @viagem.origem %>
+</p>
+
+<p>
+  <strong>Destino:</strong>
+  <%= @viagem.destino %>
+</p>
+
+<p>
+  <strong>Data inicio:</strong>
+  <%= @viagem.data_inicio %>
+</p>
+
+<p>
+  <strong>Data fim:</strong>
+  <%= @viagem.data_fim %>
+</p>
+
+<%= link_to 'Edit', edit_viagem_path(@viagem) %> |
+<%= link_to 'Back', viagens_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  veiculo_id: 
+  rastreador_id: 
+  status: 1
+
+two:
+  veiculo_id: 
+  rastreador_id: 
+  status: 1

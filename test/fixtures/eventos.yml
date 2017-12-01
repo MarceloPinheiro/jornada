@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  veiculo_id: 
+  motorista_id: 
+  tipo_evento_id: 
+  data_evento: 2017-02-16
+  data_lancamento: 2017-02-16
+  local: MyText
+  motor: 1
+  velocidade: 9.99
+  altitude: 9.99
+  latitude: 9.99
+  longitude: 9.99
+
+two:
+  veiculo_id: 
+  motorista_id: 
+  tipo_evento_id: 
+  data_evento: 2017-02-16
+  data_lancamento: 2017-02-16
+  local: MyText
+  motor: 1
+  velocidade: 9.99
+  altitude: 9.99
+  latitude: 9.99
+  longitude: 9.99

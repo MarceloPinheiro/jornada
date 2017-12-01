@@ -1,0 +1,26 @@
+var Dados = '';
+Dados += "<div class='row'><div class='col-lg-2'><a href='/jornadaex.xlsx?datai=<%=@data_inicial%>&&dataf=<%=@data_final%>&&motorista=<%=@motorista%>' class='btn btn-success'><i class='glyphicon glyphicon-download-alt'> Download XLSX</i></a></div></div>";
+Dados += "<div class='row'>";
+Dados += "<div class='col-lg-6'>";
+Dados += "<span class='control-label'>Motorista:</span>";
+Dados += "<span class='form-control'><%= @jornada[0]['motoristar'] %></span>";
+Dados += "</div>";
+
+Dados += "<div class='col-lg-3'>";
+Dados += "<span class='control-label'>Data Inicial:</span>";
+Dados += "<span class='form-control'><%= @data_inicial.strftime('%d/%m/%Y') %></span>";
+Dados += "</div>";
+
+Dados += "<div class='col-lg-3'>";
+Dados += "<span class='control-label'>Data Final:</span>";
+Dados += "<span class='form-control'><%= @data_final.strftime('%d/%m/%Y') %></span>";
+Dados += "</div>";
+
+Dados += "</div>";
+Dados += "<div class='row'>";
+Dados += "<div class='col-lg-12'>";
+Dados += "<%= CalculoJornada(@jornada) %>";
+Dados += "</div>";
+Dados += "</div>";
+
+$("#corpoRel").html(Dados);

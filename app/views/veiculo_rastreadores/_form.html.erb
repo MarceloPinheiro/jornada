@@ -1,0 +1,21 @@
+<%= form_for @veiculo_rastreador, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :veiculo_id, :class => 'control-label' %>
+    <%= f.hidden_field :veiculo_id, :value => @veiculo.id %>
+    <%= f.label @veiculo.placa, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :rastreador_id, :class => 'control-label' %>
+    <%= f.collection_select(:rastreador_id,Rastreador.all.order("marca asc"),:id,:marca,{}, :class => 'form-control') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :status, :class => 'control-label' %>
+    <%= f.select :status,[["Ativo",1],["Inativo",0]],{}, :class => 'form-control' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                veiculo_rastreadores_path, :class => 'btn' %>
+  </div>
+<% end %>

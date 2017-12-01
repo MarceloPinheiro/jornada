@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  tipo_parada_id: 
+  latitude: 9.99
+  longitude: 9.99
+  raio: 9.99
+
+two:
+  descricao: MyString
+  tipo_parada_id: 
+  latitude: 9.99
+  longitude: 9.99
+  raio: 9.99

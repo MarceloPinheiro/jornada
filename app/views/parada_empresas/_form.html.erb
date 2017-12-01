@@ -1,0 +1,16 @@
+<%= form_for @parada_empresa, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :ponto_parada_id, :class => 'control-label' %>
+    <%= f.number_field :ponto_parada_id, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :empresa_id, :class => 'control-label' %>
+    <%= f.number_field :empresa_id, :class => 'form-control' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                parada_empresas_path, :class => 'btn' %>
+  </div>
+<% end %>

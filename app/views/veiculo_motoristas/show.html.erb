@@ -1,0 +1,25 @@
+<%- model_class = VeiculoMotorista -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:veiculo_id) %>:</strong></dt>
+  <dd><%= @veiculo_motorista.veiculo_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:motorista_id) %>:</strong></dt>
+  <dd><%= @veiculo_motorista.motorista_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @veiculo_motorista.status %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              veiculo_motoristas_path(:id => @veiculo_motorista.veiculo_id), :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_veiculo_motorista_path(@veiculo_motorista), :class => 'btn btn-primary' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              veiculo_motorista_path(@veiculo_motorista),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

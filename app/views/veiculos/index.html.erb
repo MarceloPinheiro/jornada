@@ -1,0 +1,41 @@
+<%- model_class = Veiculo -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:empresa_id) %></th>
+      <th><%= model_class.human_attribute_name(:motorista_id) %></th>
+      <th><%= model_class.human_attribute_name(:placa) %></th>
+      <th><%= model_class.human_attribute_name(:rastreador_id) %></th>
+      <th><%= model_class.human_attribute_name(:cor) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @veiculos.each do |veiculo| %>
+      <tr>
+        <td><%= link_to veiculo.id, veiculo_path(veiculo) %></td>
+        <td><%= veiculo.empresa.razao %></td>
+        <td><%= (0<VeiculoMotorista.where('veiculo_id=? and status=?',veiculo.id,1).count() ? VeiculoMotorista.where('veiculo_id=? and status=?',veiculo.id,1).take.motorista.nome : 'Sem Motorista') %></td>
+        <td><%= veiculo.placa %></td>
+        <td><%= (0<VeiculoRastreador.where('veiculo_id=? and status=?',veiculo.id,1).count() ? VeiculoRastreador.where('veiculo_id=? and status=?',veiculo.id,1).take.rastreador.marca : 'Sem Rastreador') %></td>
+        <td><%= veiculo.cor %></td>
+        <td><%=l veiculo.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_veiculo_path(veiculo), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to 'Motorista',veiculo_motoristas_path(:id => veiculo.id), :class => 'btn btn-success btn-xs' %>
+          <%= link_to 'Rastreador',veiculo_rastreadores_path(:id => veiculo.id), :class => 'btn btn-info btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_veiculo_path,
+            :class => 'btn btn-primary' %>

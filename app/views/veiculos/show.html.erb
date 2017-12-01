@@ -1,0 +1,29 @@
+<%- model_class = Veiculo -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:empresa_id) %>:</strong></dt>
+  <dd><%= @veiculo.empresa_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:motorista_id) %>:</strong></dt>
+  <dd><%= @veiculo.motorista_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:placa) %>:</strong></dt>
+  <dd><%= @veiculo.placa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rastreador_id) %>:</strong></dt>
+  <dd><%= @veiculo.rastreador_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cor) %>:</strong></dt>
+  <dd><%= @veiculo.cor %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              veiculos_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_veiculo_path(@veiculo), :class => 'btn btn-primary' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              veiculo_path(@veiculo),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

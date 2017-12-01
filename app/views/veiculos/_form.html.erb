@@ -1,0 +1,23 @@
+<%= form_for @veiculo, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :empresa_id, :class => 'control-label' %>
+    <%= f.collection_select(:empresa_id,Empresa.all.order("razao asc"),:id,:razao,{}, :class => 'form-control') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :placa, :class => 'control-label' %>
+    <%= f.text_field :placa, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cor, :class => 'control-label' %>
+    <%= f.text_field :cor, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label "status", :class => 'control-label' %>
+    <select name='veiculo[status]' id="veiculo_status" class="form-control"><option value=1>Ativo</option><option value=0>Inativo</option></select>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                veiculos_path, :class => 'btn' %>
+  </div>
+<% end %>

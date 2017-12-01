@@ -1,0 +1,44 @@
+<%- model_class = PontoParada -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:descricao) %></th>
+      <th><%= model_class.human_attribute_name(:tipo_parada_id) %></th>
+      <th><%= model_class.human_attribute_name(:latitude) %></th>
+      <th><%= model_class.human_attribute_name(:longitude) %></th>
+      <th><%= model_class.human_attribute_name(:raio) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ponto_paradas.each do |ponto_parada| %>
+      <tr>
+        <td><%= link_to ponto_parada.id, ponto_parada_path(ponto_parada) %></td>
+        <td><%= ponto_parada.descricao %></td>
+        <td><%= ponto_parada.tipo_parada.descricao %></td>
+        <td><%= ponto_parada.latitude %></td>
+        <td><%= ponto_parada.longitude %></td>
+        <td><%= ponto_parada.raio %></td>
+        <td><%=l ponto_parada.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_ponto_parada_path(ponto_parada), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      ponto_parada_path(ponto_parada),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_ponto_parada_path,
+            :class => 'btn btn-primary' %>

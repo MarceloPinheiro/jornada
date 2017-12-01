@@ -1,0 +1,16 @@
+<%= form_for @empresa, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :razao, :class => 'control-label' %>
+    <%= f.text_field :razao, :class => 'form-control' %>
+  </div>
+  <div class="form-group" id="cnpj_group">
+    <%= f.label :cnpj, :class => 'control-label' %>
+    <%= f.text_field :cnpj, :class => 'form-control', :onkeypress => 'formataCampo(empresa_cnpj,"00.000.000/0000-00",this)', :maxlength => 18, :onfocusout => 'validaCNPJ("empresa_cnpj","btn_save","cnpj_group")' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :id => 'btn_save', :class => 'btn btn-primary disabled' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                empresas_path, :class => 'btn' %>
+  </div>
+<% end %>

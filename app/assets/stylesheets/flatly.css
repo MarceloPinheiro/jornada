@@ -1,0 +1,8 @@
+/* Flatly
+ * Bootswatch
+ *= require_self
+ *= require jquery-ui
+ *= require bootstrap-datepicker
+ *= require flatly/loader
+ *= require flatly/bootswatch
+*/

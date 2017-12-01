@@ -1,0 +1,22 @@
+wb=xlsx_package.workbook
+
+wb.styles do |style|
+
+	wb.add_worksheet(name: "Jornada") do |sheet|
+
+	c1 = style.add_style(:b => true,:sz => 10, border: Axlsx::STYLE_THIN_BORDER, :alignment => { :horizontal => :left } )
+	c2 = style.add_style(:b => true,:sz => 12, border: Axlsx::STYLE_THIN_BORDER, :alignment => { :horizontal => :left } )
+	sheet.add_row ['Motorista','','','','','Data Inicial','Data Inicial', 'Data Final','Data Final'], style: [c1,c1,c1,c1,c1,c1,c1,c1,c1]
+	sheet.add_row [@motorista,'','','','',@data_inicial.strftime("%d/%m/%Y"),'',@data_final.strftime("%d/%m/%Y"),''], style: [c2,c2,c2,c2,c2,c2,c2,c2,c2]
+	sheet.merge_cells("A1:E1")
+	sheet.merge_cells("F1:G1")
+	sheet.merge_cells("H1:I1")
+	sheet.merge_cells("A2:E2")
+	sheet.merge_cells("F2:G2")
+	sheet.merge_cells("H2:I2")
+	sheet.add_row [""]
+
+		CalculoJornadaEx(@jornada,sheet,style)	
+
+	end
+end

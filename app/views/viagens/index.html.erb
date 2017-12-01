@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Viagens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Veiculo</th>
+      <th>Origem</th>
+      <th>Destino</th>
+      <th>Data inicio</th>
+      <th>Data fim</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @viagens.each do |viagem| %>
+      <tr>
+        <td><%= viagem.veiculo %></td>
+        <td><%= viagem.origem %></td>
+        <td><%= viagem.destino %></td>
+        <td><%= viagem.data_inicio %></td>
+        <td><%= viagem.data_fim %></td>
+        <td><%= link_to 'Show', viagem %></td>
+        <td><%= link_to 'Edit', edit_viagem_path(viagem) %></td>
+        <td><%= link_to 'Destroy', viagem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Viagem', new_viagem_path %>

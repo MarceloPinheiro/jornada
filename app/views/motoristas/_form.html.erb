@@ -1,0 +1,32 @@
+<%= form_for @motorista, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :nome, :class => 'control-label' %>
+    <%= f.text_field :nome, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cnh, :class => 'control-label' %>
+    <%= f.text_field :cnh, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :telefone, :class => 'control-label' %>
+    <%= f.text_field :telefone, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <%= f.text_field :email, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cpf, :class => 'control-label' %>
+    <%= f.text_field :cpf, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :empresa_id, :class => 'control-label' %>
+    <%= f.number_field :empresa_id, :class => 'form-control' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                motoristas_path, :class => 'btn' %>
+  </div>
+<% end %>

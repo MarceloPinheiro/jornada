@@ -1,0 +1,46 @@
+<%- model_class = Motorista -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:cnh) %></th>
+      <th><%= model_class.human_attribute_name(:telefone) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:cpf) %></th>
+      <th><%= model_class.human_attribute_name(:empresa_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @motoristas.each do |motorista| %>
+      <tr>
+        <td><%= link_to motorista.id, motorista_path(motorista) %></td>
+        <td><%= motorista.nome %></td>
+        <td><%= motorista.cnh %></td>
+        <td><%= motorista.telefone %></td>
+        <td><%= motorista.email %></td>
+        <td><%= motorista.cpf %></td>
+        <td><%= motorista.empresa.razao %></td>
+        <td><%=l motorista.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_motorista_path(motorista), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      motorista_path(motorista),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_motorista_path,
+            :class => 'btn btn-primary' %>

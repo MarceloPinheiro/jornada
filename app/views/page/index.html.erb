@@ -1,0 +1,87 @@
+
+<div class="bs-docs-section">
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="form-group">
+  				
+    			<input type="text" id='motorista' class="form-control" placeholder="Motorista">
+  				
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="form-group">
+  				<div class="input-group">
+    				<input type="text" id='datai' class="form-control datas" placeholder="Data Inicial">
+    				<span class="input-group-addon">
+      					<span class="glyphicon glyphicon-calendar"></span>
+    				</span>
+  				</div>
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="form-group">
+  				<div class="input-group">
+    				<input type="text" id='dataf' class="form-control datas" placeholder="Data Final">
+    				<span class="input-group-addon">
+      					<span class="glyphicon glyphicon-calendar"></span>
+    				</span>
+  				</div>
+			</div>
+		</div>
+		<div class="col-lg-2" style="text-align: left;">
+			<button class= 'btn btn-success glyphicon glyphicon-search' onclick='consultaMotorista()'></button>
+		</div>
+		<div class="col-lg-2" style="text-align: right;">
+			<%= link_to 'Importar Registros','#dialogindex', data:{:remote => true, :toggle=>'modal', :target=>'#dialogindex'}, :class => 'btn btn-info' %>
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<div class='bs-docs-section'>
+	<div id="corpoRel"></div>
+</div>
+
+
+
+
+
+<div class="bs-component">
+    <div id="dialogindex" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h4 class="modal-title" id="index_title">Importar CSV</h4>
+                </div>
+                <div class="modal-body" style="height:350px;overflow-y:scroll;">
+                    <span id="index_model">
+                    	
+                    	<div class="row">
+							<h3>Importar Extrato:</h3>
+							<div class="bs-docs-section">
+								<%= form_for :impcsv,:url => {:action =>'impcsv', :controller => 'viagens'}, :html => {:multipart => true} do |f| %>
+  									<div class="form-group">
+    									<%= f.label 'Arquivo Retorno', :class => 'control-label' %>
+    									<%= f.file_field :arq, :class => 'form-control' %>
+  									</div>
+  									<div class="form-actions">
+    									<%= f.submit 'Enviar', :class => 'btn btn-primary', :onclick => 'envia_jornada()' %>
+  									</div>
+								<%end%>
+							</div>
+						</div>
+
+                    </span>
+                </div>
+                <div class="modal-footer">
+                    <span id="index_rodape"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
